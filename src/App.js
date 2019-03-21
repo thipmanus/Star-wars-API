@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
+import styles from 'App.css';
 const URL = 'https://swapi.co/api/starships/';
 
 class App extends Component {
