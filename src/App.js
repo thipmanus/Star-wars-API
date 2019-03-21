@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
-import styles from 'App.css';
+import './App.css';
 const URL = 'https://swapi.co/api/starships/';
 
 class App extends Component {
@@ -22,18 +22,22 @@ class App extends Component {
   renderDisplay(){
     return _.map(this.state.starships,starship =>{
       return(
-        <li className = "list-group-item">
-            {starship.name} + {starship.model}
-        </li>
+        <div>
+            <li className = "list-group-item">
+              {starship.name} + {starship.model}
+            </li>
+        </div>
+        
       )
     })
   }
 
   render() {
     return (
-      <ul>
+      <div style={{background: "#FF0000"}}>
+          <h1>starship</h1>
           {this.renderDisplay()}
-      </ul>
+      </div>
     )
   }
 }
