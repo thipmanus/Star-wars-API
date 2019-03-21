@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 const URL = 'https://swapi.co/api/starships/';
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
       starships: [] 
     }
   }
-
+  
   componentDidMount() {
     axios.get(URL)
       .then(res => {
@@ -17,11 +18,20 @@ class App extends Component {
         console.log(res.data.results)
       })
   }
+  renderDisplay(){
+    return _.map(this.state.starships,starship =>{
+      return(
+        <li className = "list-group-item">
+            {starship.name} + {starship.model}
+        </li>
+      )
+    })
+  }
 
   render() {
     return (
       <ul>
-        { this.state.starships.map(starship => <li>{starship.name}</li>)}
+          {this.renderDisplay()}
       </ul>
     )
   }
