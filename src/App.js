@@ -5,6 +5,14 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 const URL = 'https://swapi.co/api/starships/';
+const imgUrl = 'http://s1.1zoom.me/big3/254/Starship_Star_Wars_Battlefront_II_2017_533154_3840x2160.jpg';
+const divStyle = {
+  backgroundImage: 'url(' + imgUrl + ')',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  color: "white"
+};
 
 class App extends Component {
   constructor(props) {
@@ -46,7 +54,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div>
+        <div style={divStyle}>
           <AppBar title="starship" />
           {this.renderDisplay()}
         </div>
